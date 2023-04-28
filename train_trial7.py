@@ -346,6 +346,15 @@ def main(args):
     global_epoch = 0
     best_iou = 0
 
+    midpt = time.time()
+    timetaken = midpt-start
+    sec = timetaken%60
+    t1 = timetaken/60
+    mint = t1%60
+    hour = t1/60
+
+    print("Time taken = %i:%i:%i" % (hour, mint, sec))
+
     print("Identified Weights")
     print(weights)
 
@@ -503,11 +512,11 @@ if __name__ == '__main__':
     start = time.time()
     accuracyChart = main(args)
 
-    end = time.time()
     max_value = max(accuracyChart)
     max_index = accuracyChart.index(max_value)
 
     print(max_index)
+    end = time.time()
     timetaken = end-start
     sec = timetaken%60
     t1 = timetaken/60
